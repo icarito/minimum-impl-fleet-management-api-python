@@ -1,20 +1,14 @@
-import os
 from psycopg import OperationalError, connect
-from fleet_api.config import DevConfig  # Import your Config class from the appropriate module
-from fleet_api.config import DevConfig  # Import your Config class from the appropriate module
+from fleet_api.config import Config  # Import your Config class from the appropriate module
 
-env = DevConfig()
+env = Config()
 
-def get_connection():
-   
-    # set config
-    print(env.DATABASE_URL)
+def get_connection():   
     try:
         connection = connect(
             conninfo=env.DATABASE_URL
         );
         cursor = connection.cursor()
-        cursor.execute("SET search_path TO " + env.POSTGRESQL_DEFAULT_SCHEMA)
         return connection;
 
     except OperationalError as ex:

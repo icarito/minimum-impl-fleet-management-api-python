@@ -1,15 +1,18 @@
 import os
 from ..database.db import get_connection, print_db_exception
 
-def get():
+def get(page, per_page, plate):
+    offset = (page - 1) * per_page
     
     try:
         connection = get_connection()
         taxis = []
         with connection.cursor() as cursor:
             cursor.execute(
-                """SELECT id, plate
-                    FROM taxis"""                
+                """SELECT * from TAXIS    
+                    WHERE plate LIKE %s                
+                    LIMIT %s OFFSET %s""",
+                ('%' + plate + '%', per_page, offset),
             )
             resultset = cursor.fetchall()
             taxis = [{"id": row[0], "plate": row[1]} for row in resultset]
