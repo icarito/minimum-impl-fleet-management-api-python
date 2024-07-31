@@ -8,10 +8,10 @@ env = DevConfig()
 def get_connection():
    
     # set config
-    print(env.POSTGRES_URL)
+    print(env.DATABASE_URL)
     try:
         connection = connect(
-            conninfo=env.POSTGRES_URL
+            conninfo=env.DATABASE_URL
         );
         cursor = connection.cursor()
         cursor.execute("SET search_path TO " + env.POSTGRESQL_DEFAULT_SCHEMA)

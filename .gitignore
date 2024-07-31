@@ -1,0 +1,8 @@
+.venv
+fleet_api/.env
+
+# Byte-compiled / optimized / DLL files
+fleet_api/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
