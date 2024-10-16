@@ -36,3 +36,7 @@ sin autenticación.
    reemplazando `PORT` por el valor del parámetro `--port` del comando de ejecución.
    Si la aplicación se está ejecutando correctamente, deberías obtener como respuesta un array
    JSON con 10 registros de la tabla `taxis` de la base de datos configurada en Vercel.
+
+## Endpoint de exportación a S3
+
+El endpoint de exportación a S3 se encuentra en el directorio 'export_function' y puede ser probado localmente ejecutando `test_locally.py`.
